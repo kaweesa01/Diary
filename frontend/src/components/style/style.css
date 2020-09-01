@@ -1,0 +1,421 @@
+:root{
+  --cardFirstColor: ;
+  --cardSecondColor: ;
+  --hsl: ;
+  --topMargin: ;
+}
+@font-face {
+  src: url("../fonts/Nunito-SemiBold.ttf");
+  font-family: Nunito-SemiBold;
+}
+@font-face {
+  src: url("../fonts/Satisfy-Regular.ttf");
+  font-family: Satisfy-Regular;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Nunito-SemiBold;
+  color: rgb(95, 91, 91);
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--cardFirstColor) 9%,
+    var(--cardSecondColor) 100%
+  );
+}
+
+#app {
+  --height: 100vh;
+  height: var(--height);
+  margin-top: var(--topMargin);
+}
+
+.navContainer {
+  display: flex;
+}
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 5;
+  top: 0px;
+  background-color: white;
+}
+
+.name {
+  margin-left: 20px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: Satisfy-Regular;
+}
+.no-notes{
+  margin-left: 40px;
+  font-size: 4.5rem;
+  font-weight: 900;
+  align-self: center;
+  justify-self: center;
+  font-family: Satisfy-Regular;
+}
+.logoutBtn {
+  margin-right: 20px;
+}
+.bodyContainer {
+  height: auto;
+  display: grid;
+  grid-template-columns: 220px auto;
+}
+.card_div {
+  display: grid;
+  grid-template-columns: repeat(2, 350px);
+  grid-gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  /* --firstcolor: AntiqueWhite;
+  --secondcolor: #ff99cc; */
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--cardFirstColor) 9%,
+    var(--cardSecondColor) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 350px;
+  height: 210px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.contentContainer {
+  overflow: hidden;
+  padding: 10px;
+}
+.topBar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: antiquewhite;
+  padding: 0px 10px 0px 10px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dateDiv {
+  background-color: pink;
+  width: 50%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+  transform: skewX(45deg) translateX(50px);
+}
+.dateDiv h4 {
+  transform: skewX(-45deg);
+  padding-left: 20px;
+}
+
+.btnContainer {
+  height: 50px;
+  background-color: plum;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 10px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: -5px;
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-gap: 10px;
+}
+.bigDiv {
+  display: none;
+}
+
+.btn {
+  padding: 5px 10px;
+  font-weight: 300;
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+}
+.btn:focus {
+  outline: none;
+}
+
+.update {
+  background-color: rgb(125, 217, 230);
+  color: rgb(95, 91, 91);
+}
+.update:hover {
+  background-color: rgb(95, 91, 91);
+  color: rgb(125, 217, 230);
+}
+
+.delete {
+  background-color: rgb(238, 113, 113);
+  color: rgb(95, 91, 91);
+}
+.delete:hover {
+  background-color: rgb(95, 91, 91);
+  color: rgb(238, 113, 113);
+}
+
+.read {
+  background-color: rgb(233, 231, 140);
+  color: rgb(95, 91, 91);
+}
+.read:hover {
+  background-color: rgb(95, 91, 91);
+  color: rgb(233, 231, 140);
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background-color:hsl(var(--hsl), 100%, 50%,0.8);
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0%);
+  transition: transform 0.7s linear;
+}
+
+.backdropCard {
+  background: linear-gradient(
+    to bottom,
+    var(--cardFirstColor) 9%,
+    var(--cardSecondColor) 100%
+  );
+  width: 400px;
+  height: auto;
+}
+
+.backdropbtnContainer {
+  height: 55px;
+  background-color: plum;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.ctr {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-gap: 10px;
+}
+.closeBtn {
+  margin-right: 10px;
+}
+
+.closeBtn button {
+  padding: 10px;
+  background-color: tomato;
+  color: rgb(95, 91, 91);
+  border-radius: 100%;
+  font-size: 1rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.closeBtn button:hover {
+  background-color: rgb(95, 91, 91);
+  color: tomato;
+}
+
+.closeBtn button:focus {
+  outline: none;
+}
+
+.add-remove {
+  transform: translateY(-150%);
+  transition: transform 0.7s linear;
+}
+
+.settingsContainer {
+  display: flex;
+  left: 20px;
+  width: 350px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 130px;
+}
+
+.note-input {
+  height: 50px;
+  text-indent: 10px;
+  font-size: 1.2rem;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-bottom-left-radius: 20px;
+  border-bottom: 2px solid var(--cardSecondColor);
+}
+
+.note-input:focus {
+  outline: none;
+}
+
+.format-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+.colors button {
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 5px;
+  width: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+  height: 50px;
+}
+.Blue {
+  background: linear-gradient(to bottom, Aquamarine 9%, DeepSkyBlue 100%);
+}
+.Green {
+  background: linear-gradient(
+    to bottom,
+    MediumSpringGreen 9%,
+    MediumAquaMarine 100%
+  );
+}
+.yellow {
+  background: linear-gradient(to bottom, LightYellow 9%, yellow 100%);
+}
+.default {
+  background: linear-gradient(to bottom, AntiqueWhite 9%, #ff99cc 100%);
+}
+.format-btns button {
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 5px;
+  width: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+  background-color: pink;
+  height: 50px;
+}
+
+.active-formatter{
+  outline: 2px solid white;
+}
+
+textarea {
+  width: 241px;
+  padding-top: 10px;
+  height: 200px;
+  text-indent: 10px;
+  font-size: 1.2rem;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-top-right-radius: 20px;
+  border-top: 2px solid var(--cardSecondColor);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.submitBtns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit {
+  border-bottom-left-radius: 10px;
+  background-color: rgb(186, 218, 124);
+}
+
+.cancel {
+  border-top-right-radius: 10px;
+  background-color: tomato;
+}
+
+.submitBtns button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+}
+.log-out-btn {
+  border: none;
+  padding: 10 20pxpx;
+  background-color: tomato;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 50px;
+  font-size: 1rem;
+  width: 90px;
+  cursor: pointer;
+}
+
+.bottom-space{
+  height: 25px;
+  width: 100%;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search {
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.search input {
+  height: 40px;
+  text-indent: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom-left-radius: 20px;
+  border-bottom: 2px solid var(--cardSecondColor);
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search button {
+  height: 40px;
+  text-indent: 10px;
+  cursor: pointer;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: pink;
+  border-top-right-radius: 20px;
+  border-top: 2px solid var(--cardSecondColor);
+}
+
+.search button:focus {
+  outline: none;
+}
